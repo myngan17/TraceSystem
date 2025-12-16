@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Product Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Arial, sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    .card { border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); padding: 18px; margin-bottom: 18px; }
+    img { max-width: 100%; border-radius: 8px; }
+    pre { background: #f7f7fb; padding: 12px; border-radius: 8px; overflow:auto }
+  </style>
+</head>
+<body>
+  <h1>Product Viewer</h1>
+  <div class="card">
+    <h2>Metadata</h2>
+    <pre id="meta">Loading...</pre>
+  </div>
+  <div class="card">
+    <h2>Photo</h2>
+    <img id="photo" src="" alt="photo" />
+  </div>
+  <div class="card">
+    <h2>Report</h2>
+    <p><a id="report" target="_blank">Open report on IPFS</a></p>
+  </div>
+
+  <script>
+    // Edit these CIDs to match your cids.json values or paste from backend
+    const metadataCID = "QmX47SEsUV55A8qNBj8LuEH5uW7eMr2SBWe8J3XdhRfhGe";
+    const photoCID = "QmfYffp3wj1nwBRM16Lav4FkfraitZAYgZqVesiT8kwyXF";
+    const reportCID = "QmbFMke1KXqnYyBBWxB74N4c5SBnJMVAiMNRcGu6x1AwQH";
+
+    async function load() {
+      try {
+        const res = await fetch(`https://ipfs.io/ipfs/${metadataCID}`);
+        const meta = await res.json();
+        document.getElementById('meta').innerText = JSON.stringify(meta, null, 2);
+      } catch (e) {
+        document.getElementById('meta').innerText = 'Failed to load metadata: ' + e;
+      }
+      document.getElementById('photo').src = `https://ipfs.io/ipfs/${photoCID}`;
+      const a = document.getElementById('report');
+      a.href = `https://ipfs.io/ipfs/${reportCID}`;
+      a.innerText = reportCID;
+    }
+    load();
+  </script>
+</body>
+</html>
+

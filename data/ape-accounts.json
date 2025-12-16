@@ -1,0 +1,18 @@
+{
+  "manufacturer": {
+    "address": "0xDDDc08DA813C0D97B918036a386ef3021f04970B",
+    "private_key": "0xd26967ee16ef4e5fe97115fde255056d9b47f49047f47871327feef197f8b2ba"
+  },
+  "verifier": {
+    "address": "0x62172c840574EE91AC3Dde4cC61931c86920e193",
+    "private_key": "0xae805dcc2c3fed0d75f7810517d96abf91fde00dbec5e85bc09e287b3b06be4d"
+  },
+  "distributor": {
+    "address": "0x42EA4CdCc08146a6349cBAA3C5264410EE2441d0",
+    "private_key": "0x7132d4f55448ae331a47f65af16e34aa20d1959bf744c00901add36e0b0c74ad"
+  },
+  "retailer": {
+    "address": "0x3393DCA4b0C39111C99D82b2090a4db65225b08a",
+    "private_key": "0xe79c3cf31f939e9b0d56799cff2726be211c216cdc905fde375fea2e8f2620be"
+  }
+}
